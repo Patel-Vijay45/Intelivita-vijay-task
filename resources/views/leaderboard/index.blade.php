@@ -5,7 +5,7 @@
 
 
     <h2>Leaderboard - Filter: {{ ucfirst($filter) }}</h2>
-    <div style="display: flex;">
+    <div style="display: flex;flex-wrap: wrap;">
         <div style="margin-right: 20px;">
             <form method="GET" action="{{ route('leaderboard.index') }}" class="mb-3 d-flex gap-2 align-items-center">
                 <select name="filter" onchange="this.form.submit()" class="form-select w-auto">
