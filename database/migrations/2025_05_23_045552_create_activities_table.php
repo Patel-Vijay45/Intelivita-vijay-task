@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->timestamp('performed_at');
+            $table->integer('points')->default(20);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

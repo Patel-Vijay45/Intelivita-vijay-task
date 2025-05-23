@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('leaderboards', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('filter_type', 10);     
+            $table->string('reference_date', 20);  
+            $table->integer('total_points');
+            $table->integer('rank');
+            $table->timestamps(); 
+            $table->unique(['user_id', 'filter_type', 'reference_date'], 'leaderboards_user_date_unique');
         });
     }
 
